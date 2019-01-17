@@ -1,1 +1,10 @@
-export default () => <div>Welcome to next.js!</div>
+import Link from 'next/link'
+import Header from '../components/Header'
+
+const Index = () => (
+    <div>
+      <Header />
+    </div>
+  )
+  
+  export default Index
