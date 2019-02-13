@@ -1,17 +1,17 @@
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+
 describe("I would see the homepage", () => {
   it("I would have a navbar", () => {
-    const { window } = new JSDOM(`
-        <div>
-            <Link href="./index">
-                <a style={Style}>Home</a>
-            </Link>
-            <Link href="/about">
-                <a style={Style}>About</a>
-            </Link>
-            <Link  href="./work">
-                <a style={Style}>works</a>
-            </Link>
-        </div>`);
-    expect(Header()).toBe(true);
+    const frag = JSDOM.fragment(`
+    <a style={Style}>Home</a>
+    <a style={Style}>About</a>
+    <a style={Style}>works</a>
+   `);
+    expect(frag).toEqual(
+      `<a style={Style}>Home</a>
+       <a style={Style}>About</a>
+       <a style={Style}>works</a>`
+    );
   });
 });
