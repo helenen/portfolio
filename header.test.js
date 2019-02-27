@@ -1,21 +1,10 @@
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
+import React from 'react';
+import { shallow } from 'enzyme';
+import Header from './components/Header';
 
 describe("I would see the homepage", () => {
   it("I would have a navbar", () => {
-    const nav = new JSDOM(`
-    <navbar>
-      <a style={Style}>Home</a>
-      <a style={Style}>About</a>
-      <a style={Style}>works</a>
-    </navbar>
-   `);
-    expect(nav).toEqual(`
-    <navbar>
-      <a style={Style}>Home</a>
-      <a style={Style}>About</a>
-      <a style={Style}>works</a>
-     </navbar>
-    `);
+    const wrapper = shallow(<Header/>);
+    expect(wrapper).toEqual(true);
   });
 });
