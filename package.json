@@ -7,14 +7,12 @@
   },
   "dependencies": {
     "next": "^7.0.2",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
   },
   "devDependencies": {
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.10.0",
-    "jest": "^24.1.0",
-    "jest-environment-jsdom": "^24.0.0",
-    "jest-environment-jsdom-global": "^1.1.1"
+    "jest": "^24.1.0"
   }
 }
