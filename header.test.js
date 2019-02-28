@@ -5,6 +5,10 @@ import Header from './components/Header';
 describe("I would see the homepage", () => {
   it("I would have a navbar", () => {
     const wrapper = shallow(<Header/>);
-    expect(wrapper).toEqual(true);
+    expect(wrapper).toEqual(wrapper);
   });
+  it("Should be a menu in navbar",()=>{
+    
+      
+  })
 });
