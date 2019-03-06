@@ -1,34 +1,35 @@
+import React from "react";
 import Link from "next/link";
+import PropTypes from "prop-types";
 
 const Style = {
-  nabvar:{
-    display:'flex'
+  nabvar: {
+    display: "flex"
   },
-  ul:{
-    display:'flex',
-    width:'100%',
-    JustifyContent:'flex-end'
+  ul: {
+    display: "flex",
+    width: "100%",
+    JustifyContent: "flex-end"
   },
-  li:{
-    display:'flex',
-    width:'70px',
-    JustifyContent:'space-between'
+  li: {
+    display: "flex",
+    width: "70px",
+    JustifyContent: "space-between"
   },
-  p:{
-    width:'50px'
+  p: {
+    width: "50px"
   }
-  
 };
 const Header = () => (
-  <div className="nabvar"style={Style.nabvar} >
+  <div className="nabvar" style={Style.nabvar}>
     <ul style={Style.ul}>
-      <li style={Style.li}> 
+      <li style={Style.li}>
         <Link href="./index">
-         <p>Home</p>
+          <p>{this.props.home}</p>
         </Link>
       </li>
       <li style={Style.li}>
-        <Link href="./index">
+        <Link href="./about">
           <p>About</p>
         </Link>
       </li>
@@ -40,5 +41,12 @@ const Header = () => (
     </ul>
   </div>
 );
+
+Header.propTypes = {
+  home: PropTypes.string
+};
+Header.defaultProps = {
+  home: "Heading One"
+};
 
 export default Header;

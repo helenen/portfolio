@@ -15,7 +15,9 @@
     "enzyme-adapter-react-16": "^1.10.0",
     "jest": "^24.1.0"
   },
-  "jest":{
-    "setupFilesAfterEnv": ["<rootDir>/setupTests.js"]
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTests.js"
+    ]
   }
 }
