@@ -7,7 +7,7 @@ describe("I would see the homepage", () => {
     const wrapper = shallow(<Header/>);
     expect(wrapper).toEqual(wrapper);
   });
-  it("Should be a menu in navbar",()=>{
+  it("Should have a logo in navbar",()=>{
     
       
   })

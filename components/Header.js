@@ -20,12 +20,12 @@ const Style = {
     width: "50px"
   }
 };
-const Header = () => (
+const Header = props => (
   <div className="nabvar" style={Style.nabvar}>
     <ul style={Style.ul}>
       <li style={Style.li}>
         <Link href="./index">
-          <p>{this.props.home}</p>
+          <p>{props.home}</p>
         </Link>
       </li>
       <li style={Style.li}>
@@ -46,7 +46,7 @@ Header.propTypes = {
   home: PropTypes.string
 };
 Header.defaultProps = {
-  home: "Heading One"
+  home: "Home"
 };
 
 export default Header;

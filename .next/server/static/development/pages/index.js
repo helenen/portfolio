@@ -108,9 +108,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "prop-types");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-var _this = undefined,
-    _jsxFileName = "/Users/heleneniassy/Documents/portfolio/components/Header.js";
-
+var _jsxFileName = "/Users/heleneniassy/Documents/portfolio/components/Header.js";
 
 
 
@@ -133,7 +131,7 @@ var Style = {
   }
 };
 
-var Header = function Header() {
+var Header = function Header(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "nabvar",
     style: Style.nabvar,
@@ -169,7 +167,7 @@ var Header = function Header() {
       lineNumber: 28
     },
     __self: this
-  }, _this.props.home))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+  }, props.home))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     style: Style.li,
     __source: {
       fileName: _jsxFileName,
@@ -216,7 +214,7 @@ Header.propTypes = {
   home: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string
 };
 Header.defaultProps = {
-  home: "Heading One"
+  home: "Home"
 };
 /* harmony default export */ __webpack_exports__["default"] = (Header);
 
