@@ -9,12 +9,12 @@ const Style = {
   ul: {
     display: "flex",
     width: "100%",
-    JustifyContent: "flex-end"
+    justifyContent: "flex-end"
   },
   li: {
     display: "flex",
     width: "70px",
-    JustifyContent: "space-between"
+    justifyContent: "space-between"
   },
   p: {
     width: "50px"
