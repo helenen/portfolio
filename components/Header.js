@@ -4,11 +4,13 @@ import PropTypes from "prop-types";
 
 const Style = {
   nabvar: {
-    display: "flex"
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center"
   },
   ul: {
     display: "flex",
-    width: "100%",
+    width: "20%",
     justifyContent: "flex-end"
   },
   li: {
@@ -18,10 +20,14 @@ const Style = {
   },
   p: {
     width: "50px"
+  },
+  logo: {
+    marginLeft: "5%"
   }
 };
 const Header = props => (
   <div className="nabvar" style={Style.nabvar}>
+    <div style={Style.logo}>Logo</div>
     <ul style={Style.ul}>
       <li style={Style.li}>
         <Link href="./index">

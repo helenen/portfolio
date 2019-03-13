@@ -1,5 +1,8 @@
+import Header from "../components/Header";
+
 export default () => (
-    <div>
-      <p>This is the about page</p>
-    </div>
-  )
+  <div>
+    <Header />
+    <p>This is the about page</p>
+  </div>
+);
