@@ -1,0 +1,23 @@
+{
+  "connection": "default",
+  "collectionName": "introduces",
+  "info": {
+    "name": "introduce",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "Titre": {
+      "default": "",
+      "type": "string"
+    },
+    "IntroduceText": {
+      "default": "",
+      "type": "text"
+    }
+  }
+}
