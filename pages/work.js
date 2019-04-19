@@ -1,26 +1,26 @@
 import Header from "../components/Header";
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 
-function Work() {
-  const [title, description] = useState("pilou");
-  const alertName = () => {
-    alert(title);
-  };
-  const handleNameInput = e => {
-    setTitle(e.target.value);
-  };
-  const methods = () => {
-    useEffect(() =>
-      fetch("http:localhost:1337/articles")
-        .then(response => response.json())
-        .then(data => useState({ data }))
-    );
-  };
+
+function Work() { 
+    const [pokemon, setPokemons] = useState([]);
+    useEffect(async () => {
+        const result = await fetch(
+        'https://swapi.co/api/people/1/',
+        );
+        setPokemons(result.data);
+    },[])
+
   return (
     <div>
       <Header />
-      <h2>{data.title}</h2>
-      <h3 onClick={alertName}>dzdz{data.contenu}</h3>
+      <ul>
+        {pokemon.map(item => (
+          <li>
+            <a href={item.name}>{item.height}</a>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
