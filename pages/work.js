@@ -1,30 +1,21 @@
 import Header from "../components/Header";
 import React, { useState, useEffect } from "react";
 
-
 function Work() {
-  const [pokemon, setPokemons] = useState({ data: [] });
-  useEffect(async () => {
-    const result = await fetch(
-      'https://swapi.co/api/people/1/'
-        .then(results => {
-          return results.json()
-        })
-    );
-    setPokemons(result.data);
-  }, [])
-  console.log(setPokemons);
+  const [data, setData] = useState([]);
+  async function fetchData() {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const json = await response.json();
+    setData(json);
+  }
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div>
       <Header />
-      <ul>
-        {/* {pokemon.map(item => (
-          <li>
-            <a href={item.name}>{item.height}</a>
-          </li>
-        ))} */}
-      </ul>
+      <ul>{data.map(data => <h1>{data.email}</h1>)}</ul>
     </div>
   );
 }
