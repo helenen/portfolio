@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 function Work() {
   const [data, setData] = useState([]);
   async function fetchData() {
-    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const response = await fetch("http://localhost:1337/articles");
     const json = await response.json();
     setData(json);
   }
@@ -15,7 +15,7 @@ function Work() {
   return (
     <div>
       <Header />
-      <ul>{data.map(data => <h1>{data.email}</h1>)}</ul>
+      <ul>{data.map(data => <h1>{data.Titre}</h1>)}</ul>
     </div>
   );
 }
