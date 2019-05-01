@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "articles",
   "info": {
     "name": "articles",
     "description": ""
@@ -11,7 +11,7 @@
     "comment": ""
   },
   "attributes": {
-    "Titre": {
+    "titre": {
       "default": "",
       "type": "string"
     },
@@ -24,6 +24,10 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "description": {
+      "default": "",
+      "type": "text"
     }
   }
 }

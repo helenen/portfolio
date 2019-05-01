@@ -15,7 +15,13 @@ function Work() {
   return (
     <div>
       <Header />
-      <ul>{data.map(data => <h1>{data.Titre}</h1>)}</ul>
+      {data.map(data => (
+        <ul key={data.id}>
+          <h1>{data.Titre}</h1>
+          <h2>{data.contenu}</h2>
+          <img src={data.image} />
+        </ul>
+      ))}
     </div>
   );
 }
