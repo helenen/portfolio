@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import React, { useState, useEffect } from "react";
+import { black } from "ansi-colors";
 
 function Work() {
   const [data, setData] = useState([]);
@@ -15,11 +16,14 @@ function Work() {
   return (
     <div>
       <Header />
-      {data.map(data => (
-        <ul key={data.id}>
-          <h1>{data.Titre}</h1>
-          <h2>{data.contenu}</h2>
-          <img src={data.image} />
+      {data.map((data, index) => (
+        <ul key={index}>
+          <h1>{data.titre}</h1>
+          <h2>{data.description}</h2>
+          <img
+            style={{ backgroundColor: "black", width: "20px", height: "20px" }}
+            src={data.image}
+          />
         </ul>
       ))}
     </div>

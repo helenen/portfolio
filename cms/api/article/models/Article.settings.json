@@ -2,7 +2,7 @@
   "connection": "default",
   "collectionName": "articles",
   "info": {
-    "name": "articles",
+    "name": "article",
     "description": ""
   },
   "options": {
@@ -15,7 +15,7 @@
       "default": "",
       "type": "string"
     },
-    "contenu": {
+    "description": {
       "default": "",
       "type": "text"
     },
@@ -24,10 +24,6 @@
       "via": "related",
       "plugin": "upload",
       "required": false
-    },
-    "description": {
-      "default": "",
-      "type": "text"
     }
   }
 }

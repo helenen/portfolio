@@ -1,8 +1,8 @@
-/* global Introduce */
+/* global Article */
 'use strict';
 
 /**
- * Introduce.js service
+ * Article.js service
  *
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
@@ -16,20 +16,20 @@ const utils = require('strapi-hook-bookshelf/lib/utils/');
 module.exports = {
 
   /**
-   * Promise to fetch all introduces.
+   * Promise to fetch all articles.
    *
    * @return {Promise}
    */
 
   fetchAll: (params) => {
     // Convert `params` object to filters compatible with Bookshelf.
-    const filters = strapi.utils.models.convertParams('introduce', params);
+    const filters = strapi.utils.models.convertParams('article', params);
     // Select field to populate.
-    const populate = Introduce.associations
+    const populate = Article.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias);
 
-    return Introduce.query(function(qb) {
+    return Article.query(function(qb) {
       _.forEach(filters.where, (where, key) => {
         if (_.isArray(where.value) && where.symbol !== 'IN' && where.symbol !== 'NOT IN') {
           for (const value in where.value) {
@@ -52,33 +52,33 @@ module.exports = {
   },
 
   /**
-   * Promise to fetch a/an introduce.
+   * Promise to fetch a/an article.
    *
    * @return {Promise}
    */
 
   fetch: (params) => {
     // Select field to populate.
-    const populate = Introduce.associations
+    const populate = Article.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias);
 
-    return Introduce.forge(_.pick(params, 'id')).fetch({
+    return Article.forge(_.pick(params, 'id')).fetch({
       withRelated: populate
     });
   },
 
   /**
-   * Promise to count a/an introduce.
+   * Promise to count a/an article.
    *
    * @return {Promise}
    */
 
   count: (params) => {
     // Convert `params` object to filters compatible with Bookshelf.
-    const filters = strapi.utils.models.convertParams('introduce', params);
+    const filters = strapi.utils.models.convertParams('article', params);
 
-    return Introduce.query(function(qb) {
+    return Article.query(function(qb) {
       _.forEach(filters.where, (where, key) => {
         if (_.isArray(where.value)) {
           for (const value in where.value) {
@@ -92,50 +92,50 @@ module.exports = {
   },
 
   /**
-   * Promise to add a/an introduce.
+   * Promise to add a/an article.
    *
    * @return {Promise}
    */
 
   add: async (values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Introduce.associations.map(ast => ast.alias));
-    const data = _.omit(values, Introduce.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Article.associations.map(ast => ast.alias));
+    const data = _.omit(values, Article.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Introduce.forge(data).save();
+    const entry = await Article.forge(data).save();
 
     // Create relational data and return the entry.
-    return Introduce.updateRelations({ id: entry.id , values: relations });
+    return Article.updateRelations({ id: entry.id , values: relations });
   },
 
   /**
-   * Promise to edit a/an introduce.
+   * Promise to edit a/an article.
    *
    * @return {Promise}
    */
 
   edit: async (params, values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Introduce.associations.map(ast => ast.alias));
-    const data = _.omit(values, Introduce.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Article.associations.map(ast => ast.alias));
+    const data = _.omit(values, Article.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Introduce.forge(params).save(data);
+    const entry = await Article.forge(params).save(data);
 
     // Create relational data and return the entry.
-    return Introduce.updateRelations(Object.assign(params, { values: relations }));
+    return Article.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
-   * Promise to remove a/an introduce.
+   * Promise to remove a/an article.
    *
    * @return {Promise}
    */
 
   remove: async (params) => {
     params.values = {};
-    Introduce.associations.map(association => {
+    Article.associations.map(association => {
       switch (association.nature) {
         case 'oneWay':
         case 'oneToOne':
@@ -152,45 +152,45 @@ module.exports = {
       }
     });
 
-    await Introduce.updateRelations(params);
+    await Article.updateRelations(params);
 
-    return Introduce.forge(params).destroy();
+    return Article.forge(params).destroy();
   },
 
   /**
-   * Promise to search a/an introduce.
+   * Promise to search a/an article.
    *
    * @return {Promise}
    */
 
   search: async (params) => {
     // Convert `params` object to filters compatible with Bookshelf.
-    const filters = strapi.utils.models.convertParams('introduce', params);
+    const filters = strapi.utils.models.convertParams('article', params);
     // Select field to populate.
-    const populate = Introduce.associations
+    const populate = Article.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias);
 
-    const associations = Introduce.associations.map(x => x.alias);
-    const searchText = Object.keys(Introduce._attributes)
-      .filter(attribute => attribute !== Introduce.primaryKey && !associations.includes(attribute))
-      .filter(attribute => ['string', 'text'].includes(Introduce._attributes[attribute].type));
+    const associations = Article.associations.map(x => x.alias);
+    const searchText = Object.keys(Article._attributes)
+      .filter(attribute => attribute !== Article.primaryKey && !associations.includes(attribute))
+      .filter(attribute => ['string', 'text'].includes(Article._attributes[attribute].type));
 
-    const searchNoText = Object.keys(Introduce._attributes)
-      .filter(attribute => attribute !== Introduce.primaryKey && !associations.includes(attribute))
-      .filter(attribute => !['string', 'text', 'boolean', 'integer', 'decimal', 'float'].includes(Introduce._attributes[attribute].type));
+    const searchNoText = Object.keys(Article._attributes)
+      .filter(attribute => attribute !== Article.primaryKey && !associations.includes(attribute))
+      .filter(attribute => !['string', 'text', 'boolean', 'integer', 'decimal', 'float'].includes(Article._attributes[attribute].type));
 
-    const searchInt = Object.keys(Introduce._attributes)
-      .filter(attribute => attribute !== Introduce.primaryKey && !associations.includes(attribute))
-      .filter(attribute => ['integer', 'decimal', 'float'].includes(Introduce._attributes[attribute].type));
+    const searchInt = Object.keys(Article._attributes)
+      .filter(attribute => attribute !== Article.primaryKey && !associations.includes(attribute))
+      .filter(attribute => ['integer', 'decimal', 'float'].includes(Article._attributes[attribute].type));
 
-    const searchBool = Object.keys(Introduce._attributes)
-      .filter(attribute => attribute !== Introduce.primaryKey && !associations.includes(attribute))
-      .filter(attribute => ['boolean'].includes(Introduce._attributes[attribute].type));
+    const searchBool = Object.keys(Article._attributes)
+      .filter(attribute => attribute !== Article.primaryKey && !associations.includes(attribute))
+      .filter(attribute => ['boolean'].includes(Article._attributes[attribute].type));
 
     const query = (params._q || '').replace(/[^a-zA-Z0-9.-\s]+/g, '');
 
-    return Introduce.query(qb => {
+    return Article.query(qb => {
       // Search in columns which are not text value.
       searchNoText.forEach(attribute => {
         qb.orWhereRaw(`LOWER(${attribute}) LIKE '%${_.toLower(query)}%'`);
@@ -209,7 +209,7 @@ module.exports = {
       }
 
       // Search in columns with text using index.
-      switch (Introduce.client) {
+      switch (Article.client) {
         case 'mysql':
           qb.orWhereRaw(`MATCH(${searchText.join(',')}) AGAINST(? IN BOOLEAN MODE)`, `*${query}*`);
           break;
