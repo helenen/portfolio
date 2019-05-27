@@ -1,42 +1,32 @@
-import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 function Introduce() {
-  const [data, setData] = useState([]);
-  async function fetchData() {
-    const response = await fetch("http://localhost:1337/articles");
-    const json = await response.json();
-    setData(json);
-  }
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const h1Body = styled.h1`
+    font-size: 4em;
+    margin-left: 3em;
+    margin: 5 0 0 3em;
+  `;
 
-  const style = {
-    container: {
-      display: "flex",
-      justifyContent: "center",
-      flexDirection: "column",
-      alignContent: "flex-start",
-      margin: "7%"
-    },
-    h1: {
-      color: "blue",
-      fontSize: "4em",
-      marginLeft: "3em"
-    },
-    p: {
-      height: "100px",
-      weight: "1em",
-      backgroundColor: "blue",
-      marginLeft: "9em",
-      marginRight: "9em"
-    }
-  };
+  // const style = {
+  //   container: {
+  //     display: "flex",
+  //     justifyContent: "center",
+  //     flexDirection: "column",
+  //     alignContent: "flex-start",
+  //     margin: "7%"
+  //   },
+  //   p: {
+  //     height: "100px",
+  //     weight: "1em",
+  //     marginLeft: "8em",
+  //     marginRight: "9em"
+  //   }
+  // };
 
   return (
     <div>
-      <h1 style={style.h1}>Hi,</h1>
-      {data.map(data => <p style={style.p}>{data.introduce}</p>)}
+      <h1Body>Hi,</h1Body>
+      <h2>I'm Helen Niassy and it's my portfolio</h2>
     </div>
   );
 }

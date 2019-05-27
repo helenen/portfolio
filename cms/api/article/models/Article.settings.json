@@ -19,7 +19,7 @@
       "default": "",
       "type": "text"
     },
-    "image": {
+    "img": {
       "model": "file",
       "via": "related",
       "plugin": "upload",

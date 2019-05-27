@@ -22,12 +22,13 @@ const Style = {
     width: "50px"
   },
   logo: {
-    marginLeft: "5%"
+    marginLeft: "5%",
+    color: "#FFCA65"
   }
 };
 const Header = props => (
   <div className="nabvar" style={Style.nabvar}>
-    <div style={Style.logo}>Logo</div>
+    <div style={Style.logo}>Helene Niassy</div>
     <ul style={Style.ul}>
       <li style={Style.li}>
         <Link href="./index">
@@ -41,7 +42,7 @@ const Header = props => (
       </li>
       <li style={Style.li}>
         <Link href="./work">
-          <p>works</p>
+          <p>Works</p>
         </Link>
       </li>
     </ul>

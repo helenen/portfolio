@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import React, { useState, useEffect } from "react";
+import Head from "next/head";
 
 function Work() {
   const [data, setData] = useState([]);
@@ -14,15 +15,17 @@ function Work() {
 
   return (
     <div>
+      <Head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css"
+        />
+      </Head>
       <Header />
       {data.map((data, index) => (
         <ul key={index}>
           <h1>{data.titre}</h1>
           <h2>{data.description}</h2>
-          <img
-            style={{ backgroundColor: "black", width: "20px", height: "20px" }}
-            src={data.image}
-          />
         </ul>
       ))}
     </div>
